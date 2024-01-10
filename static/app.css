@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    margin: 40px
+}
+
+form > label,input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 10px auto;
+}

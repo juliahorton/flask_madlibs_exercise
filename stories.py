@@ -1,31 +1,36 @@
 """Madlibs Stories."""
 
-
 class Story:
     """Madlibs story.
 
-    To  make a story, pass a list of prompts, and the text
-    of the template.
+    To  make a story, pass in a list of part-of-speech prompts, followed by the text of the template.
 
         >>> s = Story(["noun", "verb"],
         ...     "I love to {verb} a good {noun}.")
 
     To generate text from a story, pass in a dictionary-like thing
-    of {prompt: answer, promp:answer):
+    of {prompt: answer, prompt:answer):
 
         >>> ans = {"verb": "eat", "noun": "mango"}
         >>> s.generate(ans)
         'I love to eat a good mango.'
     """
 
-    def __init__(self, words, text):
-        """Create story with words and template text."""
+    def __init__(self, prompts, text):
+        """Create story with part-of-speech prompts and template text."""
 
-        self.prompts = words
+        self.prompts = prompts
         self.template = text
 
     def generate(self, answers):
-        """Substitute answers into text."""
+        """Substitute user-provided answers into text.
+
+        Args:
+            answers (dict): key/value pairs for each answer's part of speech and the word that the user chose for it in the form of {prompt: answer, prompt: answer, ...}
+
+        Returns:
+            str: the completed Madlib
+        """
 
         text = self.template
 
